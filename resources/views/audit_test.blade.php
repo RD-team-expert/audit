@@ -24,7 +24,7 @@
     <!-- Upload Form -->
     <div class="form-group">
         <h2>Upload Audit PDF</h2>
-        <form action="{{ secure_url(route('upload-audit')) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('upload-audit') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <label for="file">Select PDF File (max 10MB):</label>
             <input type="file" name="file" id="file" accept=".pdf" required>
