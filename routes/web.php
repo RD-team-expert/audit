@@ -12,9 +12,9 @@ Route::get('/audit-test', function () {
 
 // API routes
 
-    Route::post('/upload-audit', [AuditUploadController::class, 'upload'])->name('upload-audit');
-    Route::get('/audits', [AuditDataController::class, 'index']);
-    Route::get('/audits/{id}', [AuditDataController::class, 'show']);
+//    Route::post('/upload-audit', [AuditUploadController::class, 'upload'])->name('upload-audit');
+//    Route::get('/audits', [AuditDataController::class, 'index']);
+//    Route::get('/audits/{id}', [AuditDataController::class, 'show']);
 
 Route::get('/', function () {
     return Inertia::render('Welcome');
