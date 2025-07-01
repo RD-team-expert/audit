@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
-use Smalot\PdfParser\Parser;
+use Spatie\PdfToText\Pdf;
 use Carbon\Carbon;
 
 class AuditUploadController extends Controller
@@ -50,9 +50,8 @@ class AuditUploadController extends Controller
 
             Log::info('PDF uploaded: ' . $fullPath);
 
-            $parser = new Parser();
-            $pdf = $parser->parseFile($fullPath);
-            $rawText = $pdf->getText();
+            $pdfToolPath = config('pdf.pdftotext_path', 'C:\poppler\poppler-24.08.0\Library\bin\pdftotext.exe');
+            $rawText = Pdf::getText($fullPath, $pdfToolPath);
 
             if (empty($rawText)) {
                 throw new \Exception('Failed to extract text from PDF');
