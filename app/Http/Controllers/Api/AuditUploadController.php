@@ -50,7 +50,7 @@ class AuditUploadController extends Controller
 
             Log::info('PDF uploaded: ' . $fullPath);
 
-            $pdfToolPath = config('pdf.pdftotext_path', 'C:\poppler\poppler-24.08.0\Library\bin\pdftotext.exe');
+            $pdfToolPath = config('pdf.pdftotext_path', '/usr/bin/pdftotext');
             $rawText = Pdf::getText($fullPath, $pdfToolPath);
 
             if (empty($rawText)) {
