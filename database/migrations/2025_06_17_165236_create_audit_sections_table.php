@@ -16,10 +16,10 @@ return new class extends Migration
         $table->foreignId('audit_report_id')->constrained()->onDelete('cascade');
         $table->string('section_type'); // e.g., 'audit_category' or 'report_category'
         $table->string('category');
-        $table->integer('points')->nullable();
-        $table->integer('total_points')->nullable();
-        $table->float('score')->nullable();
-        $table->integer('order')->nullable();
+        $table->integer('points')->nullable()->default(0);
+        $table->integer('total_points')->nullable()->default(0);
+        $table->float('score')->nullable()->default(0);
+        $table->integer('order')->nullable()->default(0);
         $table->timestamps();
     });
 }
