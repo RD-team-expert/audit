@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: Kami_Project
+    ports:
+      - "5584:80"
+    volumes:
+      - .:/var/www/html
